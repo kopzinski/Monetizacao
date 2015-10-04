@@ -10,9 +10,9 @@
 
             <ui:define name="content">
                 <h:form>
-                    <h:dataTable var="row" value="#{clienteMB.listaClientes}" border="1">
+                    <h:dataTable var="row" value="#{produtoMB.listaProdutos}" border="1">
                         <f:facet name="header">
-                            <h:outputText value="Tabela de Clientes" />
+                            <h:outputText value="Tabela de Produtos" />
                         </f:facet>
 
                         <h:column>
@@ -23,38 +23,27 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="CPF" />
+                                <h:outputText value="Codigo" />
                             </f:facet>
-                            <h:outputText id="idCpf" value="#{row.cpf}" />
+                            <h:outputText id="idCodigo" value="#{row.codigo}"  />
                         </h:column>
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="Email" />
+                                <h:outputText value="Preço" />
                             </f:facet>
-                            <h:outputText id="idEmail" value="#{row.email}" />
+                            <h:outputText id="idPreco" value="#{row.preco}"  />
                         </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Número Conta" />
-                            </f:facet>
-                            <h:outputText  id="idContaNumero" value="#{row.conta.numero}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="Saldo Conta" />
-                            </f:facet>
-                            <h:outputText  id="idContaSaldo" value="#{row.conta.saldo}"/>
-                        </h:column>                        
+                                            
                         <h:column >
                             <f:facet name="header">
                                 <h:outputText value="Operação" />
                             </f:facet>
-                            <h:commandLink value="Editar " action="#{clienteMB.editarCliente(row)}"/>
+                            <h:commandLink value="Editar " action="#{produtoMB.editarProduto(row)}"/>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <h:commandLink value="Remover" action="#{clienteMB.removerCliente(row)}"/>
+                            <h:commandLink value="Remover" action="#{produtoMB.removerProduto(row)}"/>
                         </h:column>
                     </h:dataTable>
-                    <h:commandButton value="Novo Cliente" action="#{clienteMB.novoCliente()}"/>
+                    <h:commandButton value="Novo Cliente" action="#{produtoMB.novoProduto()}"/>
                     <br/><br/>
                     
                 </h:form>

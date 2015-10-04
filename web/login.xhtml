@@ -14,7 +14,7 @@
         <h:form>
             <h:panelGrid columns="2">
                 <h:outputLabel value="Usuario: " for="idUsuario"/>
-                <h:inputText value="#{loginMB.login}" id="idUsuario"/>
+                <h:inputText value="#{loginMB.login}" id="idUsuario" />
                 <h:outputLabel value="Senha: " for="idSenha"/>
                 <h:inputSecret value="#{loginMB.senha}" id="idSenha"/>
                 <h:commandButton value="Login" action="#{loginMB.verificaLogin()}" />
