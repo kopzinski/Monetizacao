@@ -9,9 +9,9 @@ package model;
  *
  * @author kopzinski
  */
-class Conta {
+public class Conta {
     
-    private String numero;
+    private String numero = "";
     private Double saldo;
 
     /**

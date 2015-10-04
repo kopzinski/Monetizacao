@@ -1,64 +1,68 @@
 package bean;
 
-import model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import model.Cliente;
 
 @ManagedBean(eager = true)
 @ApplicationScoped 
 public class ClienteMB {
-
-    //CRUD
-    private List<Usuario> listaUsuarios;
-    private Usuario usuarioSelecionado;
+    
+    private boolean novo ;
+    private List<Cliente> listaClientes;
+    private Cliente clienteSelecionado;
 
     public ClienteMB() {
-        usuarioSelecionado = new Usuario();
-        listaUsuarios = new ArrayList<Usuario>();
-        listaUsuarios.add(new Usuario("admin", "admin"));
+        clienteSelecionado = new Cliente();
+        listaClientes = new ArrayList<>();
     }
 
-    public Usuario getUsuarioSelecionado() {
-        return usuarioSelecionado;
+    public String novoCliente() {
+        novo = true;
+        clienteSelecionado = new Cliente();
+        return("/admin/formClientes?faces-redirect=true");
     }
 
-    public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
-        this.usuarioSelecionado = usuarioSelecionado;
-    }
-
-    public List<Usuario> getListaUsuarios() {
-        return listaUsuarios;
-    }
-
-    public void setListaUsuarios(List<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
+    public String editarCliente(Cliente u) {
+        clienteSelecionado = u;
+        novo = false;
+        return("/admin/formClientes?faces-redirect=true");
     }
     
-
-    public String novoUsuario(){
-        usuarioSelecionado=new Usuario();
-        return("/admin/formularioCadastro?faces-redirect=true");
+    public String salvarCliente() {
+        if(novo) {
+            listaClientes.add(clienteSelecionado);
+            clienteSelecionado = new Cliente();
+        } 
+        novo = true;
+        return("/admin/listaClientes?faces-redirect=true");    
     }
 
-    public String adicionarUsuario()
-    {
-        listaUsuarios.add(usuarioSelecionado);
-        return(this.novoUsuario());
+    public void removerCliente(Cliente cliente) {
+        listaClientes.remove(cliente);
     }
 
-    public String editarUsuario(Usuario u){
-        usuarioSelecionado = u;
-        return("/admin/formularioEdicao?faces-redirect=true");
+    public boolean isNovo() {
+        return novo;
     }
-    public String atualizarUsuario()
-    {
-        return("/admin/index?faces-redirect=true");
+    public void setNovo(boolean novo) {
+        this.novo = novo;
+    }
+    public Cliente getClienteSelecionado() {
+        return clienteSelecionado;
+    }
+    public void setClienteSelecionado(Cliente clienteSelecionado) {
+        this.clienteSelecionado = clienteSelecionado;
     }
 
-    public void removerUsuario(Usuario usuario){
-        listaUsuarios.remove(usuario);
+    public List<Cliente> getListaClientes() {
+        return listaClientes;
     }
-
+    public void setListaClientes(List<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }    
+    
+    
 }

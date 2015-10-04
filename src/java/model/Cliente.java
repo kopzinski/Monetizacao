@@ -8,6 +8,7 @@ public class Cliente {
     private Conta conta;
 
     public Cliente() {
+         conta = new Conta();
     }
 
     public Cliente(String nome, String cpf, String email, Conta conta) {

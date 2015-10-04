@@ -13,15 +13,18 @@
     </h:head>
     <h:body>
         <div id="top">
-            <h:graphicImage class="img-logo" value="/resources/imagem/logo.jpg" />
+            <!--<h:graphicImage class="img-logo" value="/resources/imagem/logo.jpg" />-->
             <ui:insert name="top">   
                 
                 <h:link value="Início" outcome="index" /> &nbsp; &nbsp;
-                <h:link value="Clientes" outcome="clientes" />&nbsp; &nbsp;
+                <h:link value="Clientes" outcome="listaClientes" />&nbsp; &nbsp;
                 <h:link value="Produtos" outcome="produtos" />&nbsp; &nbsp;
                 <h:link value="Operações" outcome="operacoes" />&nbsp; &nbsp;
                 <h:link value="Venda" outcome="vendas" />&nbsp; &nbsp;
                 <h:link value="Relatorios" outcome="relatorios" />&nbsp; &nbsp;
+                <h:form>
+                    <h:commandLink value="Logout"  action="#{loginMB.realizaLogout()}"/>
+                </h:form>
             </ui:insert>
         </div>
         <div id="content" class="center_content">
