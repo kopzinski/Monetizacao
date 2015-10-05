@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/src/java/model/Cliente.java</file>
-            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/src/java/bean/LoginMB.java</file>
-            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/src/java/model/Usuario.java</file>
-            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/src/java/model/Produto.java</file>
-            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/src/java/model/Conta.java</file>
-            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/src/java/bean/UsuarioMB.java</file>
-            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/src/java/bean/ClienteMB.java</file>
+            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/web/admin/listaProdutos.xhtml</file>
+            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/web/admin/operacoes.xhtml</file>
+            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/src/java/bean/ProdutoMB.java</file>
+            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/src/java/bean/MonetizacaoMB.java</file>
+            <file>file:/Users/kopzinski/SENAC/ProgInterII/projects/Monetizacao/web/admin/formProdutos.xhtml</file>
         </group>
     </open-files>
 </project-private>

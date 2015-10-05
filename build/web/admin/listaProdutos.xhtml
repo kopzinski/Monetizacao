@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:body>
+        <ui:composition template="../template.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <h:dataTable var="row" value="#{produtoMB.listaProdutos}" border="1">
+                        <f:facet name="header">
+                            <h:outputText value="Tabela de Produtos" />
+                        </f:facet>
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nome" />
+                            </f:facet>
+                            <h:outputText id="idNome" value="#{row.nome}"  />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Codigo" />
+                            </f:facet>
+                            <h:outputText id="idCodigo" value="#{row.codigo}"  />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Preço" />
+                            </f:facet>
+                            <h:outputText id="idPreco" value="#{row.preco}"  />
+                        </h:column>
+                                            
+                        <h:column >
+                            <f:facet name="header">
+                                <h:outputText value="Operação" />
+                            </f:facet>
+                            <h:commandLink value="Editar " action="#{produtoMB.editarProduto(row)}"/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h:commandLink value="Remover" action="#{produtoMB.removerProduto(row)}"/>
+                        </h:column>
+                    </h:dataTable>
+                    <h:commandButton value="Novo Cliente" action="#{produtoMB.novoProduto()}"/>
+                    <br/><br/>
+                    
+                </h:form>
+            </ui:define>
+            
+            
+
+        </ui:composition>        
+
+
+    </h:body>
+</html>
+

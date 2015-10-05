@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:body>
+        <ui:composition template="../template.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <h:dataTable var="row" value="#{clienteMB.listaClientes}" border="1">
+                        <f:facet name="header">
+                            <h:outputText value="Tabela de Clientes" />
+                        </f:facet>
+
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nome" />
+                            </f:facet>
+                            <h:outputText id="idNome" value="#{row.nome}"  />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="CPF" />
+                            </f:facet>
+                            <h:outputText id="idCpf" value="#{row.cpf}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Email" />
+                            </f:facet>
+                            <h:outputText id="idEmail" value="#{row.email}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Número Conta" />
+                            </f:facet>
+                            <h:outputText  id="idContaNumero" value="#{row.conta.numero}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Saldo Conta" />
+                            </f:facet>
+                            <h:outputText  id="idContaSaldo" value="#{row.conta.saldo}"/>
+                        </h:column>                        
+                        <h:column >
+                            <f:facet name="header">
+                                <h:outputText value="Operação" />
+                            </f:facet>
+                            <h:commandLink value="Editar " action="#{clienteMB.editarCliente(row)}"/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h:commandLink value="Remover" action="#{clienteMB.removerCliente(row)}"/>
+                        </h:column>
+                    </h:dataTable>
+                    <h:commandButton value="Novo Cliente" action="#{clienteMB.novoCliente()}"/>
+                    <br/><br/>
+                    
+                </h:form>
+            </ui:define>
+            
+            
+
+        </ui:composition>        
+
+
+    </h:body>
+</html>
+

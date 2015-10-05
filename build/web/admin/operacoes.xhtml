@@ -1,18 +1,31 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version='1.0' encoding='ISO-8859-1' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="./../template.xhtml">
 
-    <ui:define name="top">
-        top
-    </ui:define>
-
     <ui:define name="content">
-        content
-    </ui:define>
-
-    <ui:define name="bottom">
-        bottom
+        <h:form>
+		<h:panelGrid columns="3">
+                    <h:panelGroup>
+                        Conta Origem
+                        <h:selectOneMenu value="#{monetizacaoMB.clienteOrigem}" />
+                        <h:outputText value="#{monetizacaoMB.clienteOrigem.nome}" />
+                        <h:outputText value="#{monetizacaoMB.clienteOrigem.conta.saldo}" />
+                    </h:panelGroup> 
+                    <h:panelGroup>
+                        Conta Destino
+                        <h:outputText value="#{monetizacaoMB.clienteDestino.nome}" />
+                        <h:outputText value="#{monetizacaoMB.clienteDestino.conta.saldo}" />
+                    </h:panelGroup> 
+                    <h:panelGroup>
+                        <h:commandButton value="Simular Operação" actionListener="#{monetizacaoMB.simularOperacao()}"/>
+                    </h:panelGroup> 
+		</h:panelGrid>
+			
+	</h:form>	
     </ui:define>
 
 </ui:composition>
