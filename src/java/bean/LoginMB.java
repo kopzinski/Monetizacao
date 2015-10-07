@@ -6,6 +6,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import model.Cliente;
+import model.Conta;
 
 @ManagedBean
 @SessionScoped
@@ -57,11 +59,13 @@ public class LoginMB {
         for (Usuario usuario : listaUsuarios) {
             if (usuario.verificaLogin(login, senha)) {
                 usuarioLogado = usuario;
+//                mocks();
                 if (usuario.isAdmin()) {
                     return ("/admin/index?faces-redirect=true");
                 } else {
                     return ("usuario/index?faces-redirect=true");
                 }
+                
             }
         }
         FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,
@@ -75,5 +79,16 @@ public class LoginMB {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return ("/login?faces-redirect=true");
     }
+
+//    private void mocks() {
+//        FacesContext contexto = FacesContext.getCurrentInstance();
+//        
+//        //mocks inciais de clientes
+//        ClienteMB clienteMB = (ClienteMB) contexto.getExternalContext().getApplicationMap().get("clienteMB");
+//        clienteMB.getListaClientes().add(new Cliente("paulo", "123123", "paulo@email.com", new Conta("111-1",  100.0)));
+//        clienteMB.getListaClientes().add(new Cliente("eduardo", "234234", "eduardo@email.com", new Conta("222-2", 200.0)));
+//        clienteMB.getListaClientes().add(new Cliente("mello", "345345", "mello@email.com", new Conta("333-3", 300.0)));
+//        
+//    }
 
 }

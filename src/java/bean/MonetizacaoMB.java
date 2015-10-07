@@ -1,41 +1,66 @@
 package bean;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import mock.Mocks;
 import model.Cliente;
-import model.Produto;
 
 @ManagedBean(eager = true)
 @ApplicationScoped 
 public class MonetizacaoMB {
+    private String cpfOrigem;
+    private String cpfDestino;
+
+
     private Cliente clienteOrigem;
     private Cliente clienteDestino;
     private Double valor = 0.0;
     private Double saldoOrigem = 0.0;
     private Double saldoDestino = 0.0;
+    private String dataTest;
+    private List<Cliente> listaClientes;
+
+
     
     public MonetizacaoMB() {
-        
+        if(listaClientes == null || listaClientes.isEmpty()) {
+            System.out.println("Kop! vai mockar...");
+            listaClientes = Mocks.getClientesMock();
+        }
     }
     
-    public void simularOperacao() {
+    public Cliente findClienteByCpf (String cpf) {
+        for (Cliente cliente : listaClientes) {
+            if(cliente.getCpf().equals(cpf)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+    
+    public String simularOperacao() {
+        
+        clienteOrigem = findClienteByCpf(cpfOrigem);
+        clienteDestino = findClienteByCpf(cpfDestino);
+        System.out.println("Kop! valor:" + valor);
         if(clienteOrigem != null && clienteOrigem.getConta() != null) {
             saldoOrigem = clienteOrigem.getConta().getSaldo() - valor;
         }
         if(clienteDestino != null && clienteDestino.getConta() != null) {
             saldoDestino = clienteDestino.getConta().getSaldo() + valor;
         }
+        return "operacoes";
     }
     
-    public void executarOperacao() {
+    public String executarOperacao() {
         if(clienteOrigem != null && clienteOrigem.getConta() != null) {
             clienteOrigem.getConta().setSaldo(saldoOrigem);
         }
         if(clienteDestino != null && clienteDestino.getConta() != null) {
             clienteDestino.getConta().setSaldo(saldoDestino);
         }
+        return "operacoes";
     }
 
     public Cliente getClienteOrigem() {
@@ -77,5 +102,34 @@ public class MonetizacaoMB {
     public void setSaldoDestino(Double saldoDestino) {
         this.saldoDestino = saldoDestino;
     }
-    
+
+    public String getDataTest() {
+        return dataTest;
+    }
+
+    public void setDataTest(String dataTest) {
+        this.dataTest = dataTest;
+    }
+    public List<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(List<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }    
+        public String getCpfOrigem() {
+        return cpfOrigem;
+    }
+
+    public void setCpfOrigem(String cpfOrigem) {
+        this.cpfOrigem = cpfOrigem;
+    }
+
+    public String getCpfDestino() {
+        return cpfDestino;
+    }
+
+    public void setCpfDestino(String cpfDestino) {
+        this.cpfDestino = cpfDestino;
+    }
 }

@@ -24,7 +24,6 @@ public class FiltroLogin implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-        System.out.println("Verificando login!");
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         LoginMB auth = (LoginMB) req.getSession().getAttribute("loginMB");

@@ -7,21 +7,45 @@
                 template="./../template.xhtml">
 
     <ui:define name="content">
-        <h:form>
-		<h:panelGrid columns="3">
-                    <h:panelGroup>
-                        Conta Origem
-                        <h:selectOneMenu value="#{monetizacaoMB.clienteOrigem}" />
-                        <h:outputText value="#{monetizacaoMB.clienteOrigem.nome}" />
-                        <h:outputText value="#{monetizacaoMB.clienteOrigem.conta.saldo}" />
+        <h:form id="operacoesForm">
+		<h:panelGrid columns="2">
+                    <h:panelGroup id="panelClienteOrigem">
+                        <h1>Conta Origem</h1>
+                        <h:outputLabel for="cpfClienteOrigem" value="CPF: " />
+                        <h:inputText id="cpfClienteOrigem" value="#{monetizacaoMB.cpfOrigem}" />
+                        <br />
+                        <h:outputLabel for="nomeOrigem" value="Nome: " />
+                        <h:outputText id="nomeOrigem" value="#{monetizacaoMB.clienteOrigem.nome}" />
+                        <br />
+                        <h:outputLabel for="saldoOrigem" value="Saldo: " />
+                        <h:outputText  id="saldoOrigem" value="#{monetizacaoMB.clienteOrigem.conta.saldo}" />
+                        <br />
+                        <h:outputLabel for="saldoFuturoOrigem" value="Saldo Previsto: " />
+                        <h:outputText id="saldoFuturoOrigem" value="#{monetizacaoMB.saldoOrigem}" />
+                        <br />
                     </h:panelGroup> 
-                    <h:panelGroup>
-                        Conta Destino
-                        <h:outputText value="#{monetizacaoMB.clienteDestino.nome}" />
-                        <h:outputText value="#{monetizacaoMB.clienteDestino.conta.saldo}" />
-                    </h:panelGroup> 
-                    <h:panelGroup>
-                        <h:commandButton value="Simular Operação" actionListener="#{monetizacaoMB.simularOperacao()}"/>
+                    <h:panelGroup id="panelClienteDestino">
+                        <h1>Conta Destino</h1>
+                        
+                        <h:outputLabel for="cpfClienteDestino" value="CPF: " />
+                        <h:inputText id="cpfClienteDestino" value="#{monetizacaoMB.cpfDestino}" />
+                        <br />
+                        <h:outputLabel for="nomeDestino" value="Nome: " />
+                        <h:outputText id="nomeDestino" value="#{monetizacaoMB.clienteDestino.nome}" />
+                        <br />
+                        <h:outputLabel for="saldoDestino" value="Saldo: " />
+                        <h:outputText id="saldoDestino" value="#{monetizacaoMB.clienteDestino.conta.saldo}" />
+                        <br />
+                        <h:outputLabel for="saldoFuturoDestino" value="Saldo Previsto: " />
+                        <h:outputText id="saldoFuturoDestino" value="#{monetizacaoMB.saldoDestino}" />
+                        <br />
+                    </h:panelGroup>  
+                    <h:panelGroup id="panelButton">
+                        <h:outputLabel for="valor" value="Valor Operação: " />
+                        <h:inputText id="valor" value="#{monetizacaoMB.valor}" />
+                        <br />
+                        <h:commandButton value="Escolher" action="#{monetizacaoMB.simularOperacao()}" />
+                        <h:commandButton value="Simular Operação" action="#{monetizacaoMB.executarOperacao()}" />
                     </h:panelGroup> 
 		</h:panelGrid>
 			

@@ -50,4 +50,18 @@ public class Cliente {
     public void setConta(Conta conta) {
         this.conta = conta;
     }
+
+    @Override
+    public boolean equals(Object o){
+        if(o == null) return false;
+        if(!(o instanceof Cliente)) return false;
+        return this.cpf == ((Cliente)o).cpf;
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) cpf.hashCode() + nome.hashCode();
+    }
+    
+    
 }   

@@ -14,6 +14,14 @@ public class Conta {
     private String numero = "";
     private Double saldo;
 
+    public Conta() {
+    }
+
+    public Conta(String numero, Double saldo) {
+        this.saldo = saldo;
+        this.numero = numero;
+    }
+
     /**
      * @return the numero
      */

@@ -25,7 +25,6 @@ public class FiltroAcessoAdmin implements Filter {
             FilterChain chain)
             throws IOException, ServletException {
         
-        System.out.println("Verificando acesso do admin!");
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         LoginMB auth = (LoginMB) req.getSession().getAttribute("loginMB");
