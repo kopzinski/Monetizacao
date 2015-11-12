@@ -3,6 +3,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="./../template.xhtml">
 
@@ -10,6 +11,7 @@
         <h:form id="operacoesForm">
 		<h:panelGrid columns="2">
                     <h:panelGroup id="panelClienteOrigem">
+                        
                         <h1>Conta Origem</h1>
                         <h:outputLabel for="cpfClienteOrigem" value="CPF: " />
                         <h:inputText id="cpfClienteOrigem" value="#{monetizacaoMB.cpfOrigem}" />
@@ -44,11 +46,11 @@
                         <h:outputLabel for="valor" value="Valor Operação: " />
                         <h:inputText id="valor" value="#{monetizacaoMB.valor}" />
                         <br />
-                        <h:commandButton value="Escolher" action="#{monetizacaoMB.simularOperacao()}" />
-                        <h:commandButton value="Simular Operação" action="#{monetizacaoMB.executarOperacao()}" />
+                        <h:commandButton value="Simular" action="#{monetizacaoMB.simularOperacao()}" />
+                        <h:commandButton value="Executar" action="#{monetizacaoMB.executarOperacao()}" />
+                            
                     </h:panelGroup> 
 		</h:panelGrid>
-			
 	</h:form>	
     </ui:define>
 
