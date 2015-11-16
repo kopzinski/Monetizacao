@@ -9,6 +9,12 @@ package daointerface;
  *
  * @author Renan
  */
-public class ClienteDao {
-    
+import entity.Cliente;
+import java.util.List;
+
+public interface ClienteDao {
+    public void remover(Cliente p);
+    public void salvar(Cliente p);
+    public Cliente buscarPorId(Long id);
+    public List<Cliente> listar();                
 }

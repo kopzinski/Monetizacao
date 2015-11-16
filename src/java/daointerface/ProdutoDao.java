@@ -9,6 +9,18 @@ package daointerface;
  *
  * @author Renan
  */
-public class ProdutoDao {
-    
+import entity.Produto;
+import java.util.List;
+
+public interface ProdutoDao {
+
+    public void remover(Produto p);
+
+    public void salvar(Produto p);
+
+    public Produto buscarPorId(Long id);
+
+    public List<Produto> pesquisarPorNome(String keyword);
+
+    public List<Produto> listar();
 }
