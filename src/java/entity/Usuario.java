@@ -1,4 +1,4 @@
-package model;
+package entity;
 
 public class Usuario {
     public final static int MASCULINO = 1;

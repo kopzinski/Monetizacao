@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import mock.Mocks;
-import model.Cliente;
+//import mock.Mocks;
+import entity.Cliente;
 
 @ManagedBean(eager = true)
 @ApplicationScoped 
@@ -17,7 +17,7 @@ public class ClienteMB {
 
     public ClienteMB() {
         clienteSelecionado = new Cliente();
-        listaClientes = Mocks.getClientesMock();
+        //listaClientes = Mocks.getClientesMock();
     }
 
     public String novoCliente() {

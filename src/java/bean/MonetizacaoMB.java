@@ -3,8 +3,8 @@ package bean;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import mock.Mocks;
-import model.Cliente;
+//import mock.Mocks;
+import entity.Cliente;
 
 @ManagedBean(eager = true)
 @ApplicationScoped 
@@ -26,7 +26,7 @@ public class MonetizacaoMB {
     public MonetizacaoMB() {
         if(listaClientes == null || listaClientes.isEmpty()) {
             System.out.println("Kop! vai mockar...");
-            listaClientes = Mocks.getClientesMock();
+           // listaClientes = Mocks.getClientesMock();
         }
     }
     
