@@ -1,57 +1,65 @@
 <?xml version='1.0' encoding='ISO-8859-1' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:b="http://bootsfaces.net/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
                 template="./../template.xhtml">
 
     <ui:define name="content">
-        <h:form id="operacoesForm">
-		<h:panelGrid columns="2">
+        <div class="container-fluid">
+            <h:form id="operacoesForm">
+                <h:panelGrid columns="2">
                     <h:panelGroup id="panelClienteOrigem">
-                        
-                        <h1>Conta Origem</h1>
-                        <h:outputLabel for="cpfClienteOrigem" value="CPF: " />
-                        <h:inputText id="cpfClienteOrigem" value="#{monetizacaoMB.cpfOrigem}" />
-                        <br />
-                        <h:outputLabel for="nomeOrigem" value="Nome: " />
-                        <h:outputText id="nomeOrigem" value="#{monetizacaoMB.clienteOrigem.nome}" />
-                        <br />
-                        <h:outputLabel for="saldoOrigem" value="Saldo: " />
-                        <h:outputText  id="saldoOrigem" value="#{monetizacaoMB.clienteOrigem.conta.saldo}" />
-                        <br />
-                        <h:outputLabel for="saldoFuturoOrigem" value="Saldo Previsto: " />
-                        <h:outputText id="saldoFuturoOrigem" value="#{monetizacaoMB.saldoOrigem}" />
-                        <br />
+                        <div class="col-xs-12">
+                            <h1>Conta Origem</h1>                           
+                            <h:outputLabel for="cpfClienteOrigem" value="CPF: " />
+                            <b:inputText id="cpfClienteOrigem" value="#{monetizacaoMB.cpfOrigem}" />
+                            <br />
+                            <h:outputLabel for="nomeOrigem" value="Nome: " />
+                            <h:outputText id="nomeOrigem" value="#{monetizacaoMB.clienteOrigem.nome}" />
+                            <br />
+                            <h:outputLabel for="saldoOrigem" value="Saldo: " />
+                            <h:outputText  id="saldoOrigem" value="#{monetizacaoMB.clienteOrigem.conta.saldo}" />
+                            <br />
+                            <h:outputLabel for="saldoFuturoOrigem" value="Saldo Previsto: " />
+                            <h:outputText id="saldoFuturoOrigem" value="#{monetizacaoMB.saldoOrigem}" />
+                            <br />
+                        </div>
                     </h:panelGroup> 
                     <h:panelGroup id="panelClienteDestino">
-                        <h1>Conta Destino</h1>
-                        
-                        <h:outputLabel for="cpfClienteDestino" value="CPF: " />
-                        <h:inputText id="cpfClienteDestino" value="#{monetizacaoMB.cpfDestino}" />
-                        <br />
-                        <h:outputLabel for="nomeDestino" value="Nome: " />
-                        <h:outputText id="nomeDestino" value="#{monetizacaoMB.clienteDestino.nome}" />
-                        <br />
-                        <h:outputLabel for="saldoDestino" value="Saldo: " />
-                        <h:outputText id="saldoDestino" value="#{monetizacaoMB.clienteDestino.conta.saldo}" />
-                        <br />
-                        <h:outputLabel for="saldoFuturoDestino" value="Saldo Previsto: " />
-                        <h:outputText id="saldoFuturoDestino" value="#{monetizacaoMB.saldoDestino}" />
-                        <br />
+                        <div class="col-xs-12 pull-right">
+                            <h1>Conta Destino</h1>
+
+                            <h:outputLabel for="cpfClienteDestino" value="CPF: " />
+                            <b:inputText id="cpfClienteDestino" value="#{monetizacaoMB.cpfDestino}" />
+                            <br />
+                            <h:outputLabel for="nomeDestino" value="Nome: " />
+                            <h:outputText id="nomeDestino" value="#{monetizacaoMB.clienteDestino.nome}" />
+                            <br />
+                            <h:outputLabel for="saldoDestino" value="Saldo: " />
+                            <h:outputText id="saldoDestino" value="#{monetizacaoMB.clienteDestino.conta.saldo}" />
+                            <br />
+                            <h:outputLabel for="saldoFuturoDestino" value="Saldo Previsto: " />
+                            <h:outputText id="saldoFuturoDestino" value="#{monetizacaoMB.saldoDestino}" />
+                            <br />
+                        </div>
                     </h:panelGroup>  
                     <h:panelGroup id="panelButton">
-                        <h:outputLabel for="valor" value="Valor Operação: " />
-                        <h:inputText id="valor" value="#{monetizacaoMB.valor}" />
+                        <div class="col-md-12">
+                            <h:outputLabel for="valor" value="Valor Operação: " />
+                            <b:inputText id="valor" value="#{monetizacaoMB.valor}" />
+                        </div>
                         <br />
-                        <h:commandButton value="Simular" action="#{monetizacaoMB.simularOperacao()}" />
-                        <h:commandButton value="Executar" action="#{monetizacaoMB.executarOperacao()}" />
-                            
+                        <div class="col-xs-12">
+                            <b:commandButton value="Simular" action="#{monetizacaoMB.simularOperacao()}" look="primary"/>
+                            <b:commandButton value="Executar" action="#{monetizacaoMB.executarOperacao()}" look="success"/>
+                        </div>
                     </h:panelGroup> 
-		</h:panelGrid>
-	</h:form>	
+                </h:panelGrid>
+            </h:form>	
+        </div>
     </ui:define>
 
 </ui:composition>

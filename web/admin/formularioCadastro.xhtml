@@ -12,13 +12,13 @@
         <h:form>
             <h:panelGrid columns="2" >
                 <h:outputLabel for="idNome" value="Nome:"/>
-                <h:inputText id="idNome" value="#{usuarioMB.usuarioSelecionado.nome}"  />
+                <b:inputText id="idNome" value="#{usuarioMB.usuarioSelecionado.nome}"  />
 
                 <h:outputLabel for="idTelefone" value="Telefone:"/>
-                <h:inputText id="idTelefone" value="#{usuarioMB.usuarioSelecionado.telefone}" />
+                <b:inputText id="idTelefone" value="#{usuarioMB.usuarioSelecionado.telefone}" />
 
                 <h:outputLabel for="idEmail" value="Email:"/>
-                <h:inputText id="idEmail" value="#{usuarioMB.usuarioSelecionado.email}" />
+                <b:inputText id="idEmail" value="#{usuarioMB.usuarioSelecionado.email}" />
 
                 <h:outputLabel for="idSexo" value="Sexo:" />
                 <h:selectOneRadio id="idSexo" value="#{usuarioMB.usuarioSelecionado.sexo}">
@@ -36,16 +36,16 @@
                 </h:selectOneMenu>
 
                 <h:outputLabel for="idLogin" value="Login:"/>
-                <h:inputText id="idLogin" value="#{usuarioMB.usuarioSelecionado.login}" />
+                <b:inputText id="idLogin" value="#{usuarioMB.usuarioSelecionado.login}" />
 
                 <h:outputLabel for="idSenha" value="Senha"/>
-                <h:inputSecret id="idSenha" value="#{usuarioMB.usuarioSelecionado.senha}" />
+                <b:inputSecret id="idSenha" value="#{usuarioMB.usuarioSelecionado.senha}" />
 
                 <h:outputLabel for="idAdmin" value="É admin"/>
                 <h:selectBooleanCheckbox value="#{usuarioMB.usuarioSelecionado.admin}" />
 
-                <h:commandButton value="Cadastrar" action="#{usuarioMB.adicionarUsuario()}"/>
-                <h:button value="Voltar" outcome="/admin/index"/>
+                <b:commandButton value="Cadastrar" action="#{usuarioMB.adicionarUsuario()}" look="success"/>
+                <b:button value="Voltar" outcome="/admin/index" look="primary"/>
             </h:panelGrid>
         </h:form>
     </h:body>
