@@ -12,16 +12,16 @@
                 <h:form>
                     <h:panelGrid columns="2" >
                         <h:outputLabel for="idNome" value="Nome:"/>
-                        <h:inputText  id="idNome" value="#{produtoMB.produtoSelecionado.nome}"  />
+                        <b:inputText  id="idNome" value="#{produtoMB.produtoSelecionado.nome}"  />
 
                         <h:outputLabel for="idCodigo" value="Codigo"/>
-                        <h:inputText id="idCodigo" value="#{produtoMB.produtoSelecionado.codigo}" />
+                        <b:inputText id="idCodigo" value="#{produtoMB.produtoSelecionado.codigo}" />
 
                         <h:outputLabel for="idPreco" value="Preço:"/>
-                        <h:inputText id="idPreco" value="#{produtoMB.produtoSelecionado.preco}" />
+                        <b:inputText id="idPreco" value="#{produtoMB.produtoSelecionado.preco}" />
 
-                        <h:commandButton value="Salvar" action="#{produtoMB.salvarProduto()}"/>
-                        <h:button value="Voltar" outcome="/admin/listaProdutos"/>
+                        <b:commandButton value="Salvar" action="#{produtoMB.salvarProduto()}" look="success"/>
+                        <b:button value="Voltar" outcome="/admin/listaProdutos" look="primary"/>
                     </h:panelGrid>
                 </h:form>
             </ui:define>
