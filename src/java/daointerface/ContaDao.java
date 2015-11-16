@@ -5,10 +5,12 @@
  */
 package daointerface;
 
+import entity.Conta;
+
 /**
  *
  * @author Renan
  */
 public interface ContaDao {
-    
+    public void salvar(Conta c);
 }
