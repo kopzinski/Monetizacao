@@ -8,10 +8,10 @@
 
     <h:body>
         <ui:composition template="../template.xhtml">
-
+ 
             <ui:define name="content">
                 <h:form>
-                    <h:dataTable var="usuario" value="#{usuarioMB.listaUsuarios}" border="1">
+                    <h:dataTable styleClass="table table-striped" var="usuario" value="#{usuarioMB.listaUsuarios}" border="1">
                         <f:facet name="header">
                             <h:outputText value="Tabela de Usuários" />
                         </f:facet>
@@ -67,7 +67,7 @@
                             <h:commandLink value="Remover" action="#{usuarioMB.removerUsuario(usuario)}"/>
                         </h:column>
                     </h:dataTable>
-                    <h:commandButton value="Novo Usuario" action="#{usuarioMB.novoUsuario()}"/>
+                    <b:commandButton value="Novo Usuario" action="#{usuarioMB.novoUsuario()}" look="success"/>
                     <br/><br/>
                     <h:commandLink value="Logout" action="#{loginMB.realizaLogout()}"/>
                 </h:form>

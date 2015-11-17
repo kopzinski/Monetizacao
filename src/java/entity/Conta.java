@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +13,7 @@ import javax.persistence.Id;
 /**
  *
  * @author kopzinski
+ * @author padilha
  */
 @Entity
 public class Conta {

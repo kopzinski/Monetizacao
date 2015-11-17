@@ -11,7 +11,7 @@
 
             <ui:define name="content">
                 <h:form>
-                    <h:dataTable var="row" value="#{produtoMB.listaProdutos}" border="1">
+                    <h:dataTable styleClass="table table-striped" var="row" value="#{produtoMB.listaProdutos}" border="1">
                         <f:facet name="header">
                             <h:outputText value="Tabela de Produtos" />
                         </f:facet>
@@ -44,7 +44,7 @@
                             <h:commandLink value="Remover" action="#{produtoMB.removerProduto(row)}"/>
                         </h:column>
                     </h:dataTable>
-                    <h:commandButton value="Novo Cliente" action="#{produtoMB.novoProduto()}"/>
+                    <b:commandButton value="Novo Produto" action="#{produtoMB.novoProduto()}" look="success"/>
                     <br/><br/>
                     
                 </h:form>

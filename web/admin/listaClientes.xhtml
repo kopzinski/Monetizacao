@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:body>
@@ -10,7 +11,7 @@
 
             <ui:define name="content">
                 <h:form>
-                    <h:dataTable var="row" value="#{atletaController.listaClientes}" border="1">
+                    <h:dataTable styleClass="table table-striped" var="row" value="#{atletaController.listaClientes}" border="1">
                         <f:facet name="header">
                             <h:outputText value="Tabela de Clientes" />
                         </f:facet>
@@ -54,7 +55,7 @@
                             <h:commandLink value="Remover" action="#{clienteMB.removerCliente(row)}"/>
                         </h:column>
                     </h:dataTable>
-                    <h:commandButton value="Novo Cliente" action="#{clienteMB.novoCliente()}"/>
+                    <b:commandButton value="Novo Cliente" action="#{clienteMB.novoCliente()}" look="success"/>
                     <br/><br/>
                     
                 </h:form>

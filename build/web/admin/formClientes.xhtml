@@ -8,29 +8,34 @@
 
     <h:body>
         <ui:composition template="../template.xhtml">
+
             <ui:define name="content">
-                <h:form>
-                    <h:panelGrid columns="2" >
-                        <h:outputLabel for="idNome" value="Nome:"/>
-                        <h:inputText  id="idNome" value="#{clienteMB.clienteSelecionado.nome}"  />
+                <b:container>
 
-                        <h:outputLabel for="idCpf" value="CPF"/>
-                        <h:inputText id="idCpf" value="#{clienteMB.clienteSelecionado.cpf}" />
+                    <h:form>
+                        <h:panelGrid columns="2" >
+                            <h:outputLabel for="idNome" value="Nome:"/>
+                            <b:inputText  id="idNome" value="#{clienteMB.clienteSelecionado.nome}"  />
 
-                        <h:outputLabel for="idEmail" value="Email:"/>
-                        <h:inputText id="idEmail" value="#{clienteMB.clienteSelecionado.email}" />
+                            <h:outputLabel for="idCpf" value="CPF"/>
+                            <b:inputText id="idCpf" value="#{clienteMB.clienteSelecionado.cpf}" />
 
-                        <h:outputLabel for="idConta" value="Número Conta:"/>
-                        <h:inputText id="idConta" value="#{clienteMB.clienteSelecionado.conta.numero}" />
-                        
-                        <h:outputLabel for="idSaldo" value="Saldo Conta:"/>
-                        <h:inputText id="idSaldo" value="#{clienteMB.clienteSelecionado.conta.saldo}" />                        
+                            <h:outputLabel for="idEmail" value="Email:"/>
+                            <b:inputText id="idEmail" value="#{clienteMB.clienteSelecionado.email}" />
 
-                        <h:commandButton value="Salvar" action="#{clienteMB.salvarCliente()}"/>
-                        <h:button value="Voltar" outcome="/admin/listaClientes"/>
-                    </h:panelGrid>
-                </h:form>
+                            <h:outputLabel for="idConta" value="Número Conta:"/>
+                            <b:inputText id="idConta" value="#{clienteMB.clienteSelecionado.conta.numero}" />
+
+                            <h:outputLabel for="idSaldo" value="Saldo Conta:"/>
+                            <b:inputText id="idSaldo" value="#{clienteMB.clienteSelecionado.conta.saldo}" />                        
+
+                            <b:commandButton value="Salvar" action="#{clienteMB.salvarCliente()}" look="success"/>
+                            <b:button value="Voltar" outcome="/admin/listaClientes" look="primary"/>
+                        </h:panelGrid>
+                    </h:form>
+                </b:container>
             </ui:define>
+
         </ui:composition>        
 
 
