@@ -7,8 +7,8 @@ package mock;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.Cliente;
-import model.Conta;
+import entity.Cliente;
+import entity.Conta;
 
 /**
  *
