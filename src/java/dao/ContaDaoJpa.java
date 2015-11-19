@@ -7,6 +7,7 @@ package dao;
 
 import daointerface.ContaDao;
 import entity.Conta;
+import java.util.List;
 import javax.persistence.EntityManager;
 import util.JpaUtil;
 
@@ -29,6 +30,14 @@ public class ContaDaoJpa implements ContaDao {
         }
         em.getTransaction().commit();
         em.close();
+    }
+    
+    @Override
+    public List<Conta> listar() {
+        EntityManager em = JpaUtil.getEntityManager();
+        List<Conta> lista = em.createQuery("SELECT c FROM Conta c").getResultList();
+        em.close();
+        return (lista);
     }
 }
 

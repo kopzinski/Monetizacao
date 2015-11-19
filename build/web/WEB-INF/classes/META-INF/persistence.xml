@@ -6,6 +6,7 @@
     <class>entity.Conta</class>
     <class>entity.Produto</class>
     <class>entity.Usuario</class>
+    <class>entity.Lancamento</class>
 
     <!--<jta-data-source>MonetizacaoPU</jta-data-source>-->
     <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
@@ -16,7 +17,7 @@
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
       <property name="javax.persistence.jdbc.password" value=""/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
-      <property name="hibernate.hbm2ddl.auto" value="create"/>        
+      <!--<property name="hibernate.hbm2ddl.auto" value="create"/>-->        
    
     </properties>
   </persistence-unit>

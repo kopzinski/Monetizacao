@@ -4,6 +4,7 @@ import daointerface.ClienteDao;
 import entity.Cliente;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import util.JpaUtil;
 
 /**
@@ -26,6 +27,10 @@ public class ClienteDaoJpa implements ClienteDao {
     public void salvar(Cliente p) {
         EntityManager em = JpaUtil.getEntityManager();
         em.getTransaction().begin();
+        ContaDaoJpa contaDao = new ContaDaoJpa();
+        //salvando a conta primeiro
+        contaDao.salvar(p.getConta());
+        
         if (p.getId() == null) {
             em.persist(p);
         } else {
@@ -46,9 +51,19 @@ public class ClienteDaoJpa implements ClienteDao {
     @Override
     public List<Cliente> listar() {
         EntityManager em = JpaUtil.getEntityManager();
-        List<Cliente> listaProdutos = em.createQuery("SELECT p FROM Cliente ").getResultList();
+        List<Cliente> listaProdutos = em.createQuery("SELECT c FROM Cliente c").getResultList();
         em.close();
         return (listaProdutos);        
     }
+    
+    
+    public List<Cliente> listarPorCpf(String cpf) {
+        EntityManager em = JpaUtil.getEntityManager();
+        Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.cpf = :cpf ");
+        query.setParameter("cpf", cpf);
+        List<Cliente> listaProdutos = query.getResultList();
+        em.close();
+        return (listaProdutos);        
+    }    
 
 }

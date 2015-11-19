@@ -1,5 +1,6 @@
 package bean;
 
+import dao.ClienteDaoJpa;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -20,22 +21,22 @@ public class MonetizacaoMB {
     private Double saldoDestino = 0.0;
     private String dataTest;
     private List<Cliente> listaClientes;
+    private ClienteDaoJpa clienteDao;
 
 
     
     public MonetizacaoMB() {
+        if(clienteDao == null) {
+            clienteDao = new ClienteDaoJpa();
+        }
         if(listaClientes == null || listaClientes.isEmpty()) {
-            System.out.println("Kop! vai mockar...");
-           // listaClientes = Mocks.getClientesMock();
+            listaClientes = clienteDao.listar();
         }
     }
     
     public Cliente findClienteByCpf (String cpf) {
-        for (Cliente cliente : listaClientes) {
-            if(cliente.getCpf().equals(cpf)) {
-                return cliente;
-            }
-        }
+        listaClientes = clienteDao.listarPorCpf(cpf);
+        
         return null;
     }
     

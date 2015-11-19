@@ -11,6 +11,13 @@
 
             <ui:define name="content">
                 <h:form>
+
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="CPF " for="cpf"/>
+                        <b:inputText value="#{clienteMB.cpf}" id="cpf" />
+                        <b:commandButton value="Filtrar" action="#{clienteMB.filtrar()}" />
+                    </h:panelGrid>
+
                     <h:dataTable styleClass="table table-striped" var="row" value="#{clienteMB.listaClientes}" border="1">
                         <f:facet name="header">
                             <h:outputText value="Tabela de Clientes" />
@@ -57,11 +64,11 @@
                     </h:dataTable>
                     <b:commandButton value="Novo Cliente" action="#{clienteMB.novoCliente()}" look="success"/>
                     <br/><br/>
-                    
+
                 </h:form>
             </ui:define>
-            
-            
+
+
 
         </ui:composition>        
 

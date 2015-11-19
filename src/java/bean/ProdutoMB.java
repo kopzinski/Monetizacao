@@ -1,6 +1,6 @@
 package bean;
 
-import java.util.ArrayList;
+import dao.ProdutoDaoJpa;
 import java.util.List;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -13,10 +13,14 @@ public class ProdutoMB {
     private boolean novo ;
     private List<Produto> listaProdutos;
     private Produto clienteSelecionado;
+    private ProdutoDaoJpa dao;
 
     public ProdutoMB() {
+        if(dao == null) {
+            dao = new ProdutoDaoJpa();
+        }
         clienteSelecionado = new Produto();
-        listaProdutos = new ArrayList<>();
+        listaProdutos = dao.listar();
     }
 
     public String novoProduto() {
@@ -32,6 +36,7 @@ public class ProdutoMB {
     }
     
     public String salvarProduto() {
+        dao.salvar(clienteSelecionado);
         if(novo) {
             listaProdutos.add(clienteSelecionado);
             clienteSelecionado = new Produto();
@@ -41,6 +46,7 @@ public class ProdutoMB {
     }
 
     public void removerProduto(Produto cliente) {
+        dao.remover(cliente);
         listaProdutos.remove(cliente);
     }
 

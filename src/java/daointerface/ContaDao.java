@@ -6,6 +6,7 @@
 package daointerface;
 
 import entity.Conta;
+import java.util.List;
 
 /**
  *
@@ -14,4 +15,5 @@ import entity.Conta;
  */
 public interface ContaDao {
     public void salvar(Conta c);
+    public List<Conta> listar();  
 }
