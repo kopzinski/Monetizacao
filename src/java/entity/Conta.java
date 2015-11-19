@@ -5,10 +5,12 @@
  */
 package entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
@@ -16,6 +18,7 @@ import javax.persistence.Id;
  * @author padilha
  */
 @Entity
+@Table(name = "conta")
 public class Conta {
     
     private static final long serialVersionUID = 1L;
@@ -23,7 +26,11 @@ public class Conta {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @Column(name = "numero")
     private String numero = "";
+    
+    @Column(name = "saldo")
     private Double saldo;
 
     public Conta() {
@@ -55,9 +62,6 @@ public class Conta {
         return saldo;
     }
 
-    /**
-     * @param saldo the saldo to set
-     */
     public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }

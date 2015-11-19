@@ -10,6 +10,7 @@ import entity.Conta;
 /**
  *
  * @author Renan
+ * @author kopinski
  */
 public interface ContaDao {
     public void salvar(Conta c);

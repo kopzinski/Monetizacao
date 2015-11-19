@@ -1,19 +1,35 @@
 package entity;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-public class Cliente implements Serializable{
+@Entity
+@Table(name = "cliente")
+public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @Column(name = "cpf")
     private String cpf;
+    
+    @Column(name = "nome")
     private String nome;
+    
+    @Column(name = "email")
     private String email;
+    
+    @OneToOne
     private Conta conta;
 
     public Cliente() {

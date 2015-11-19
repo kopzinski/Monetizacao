@@ -17,6 +17,7 @@ public class ClienteMB {
 
     public ClienteMB() {
         clienteSelecionado = new Cliente();
+        listaClientes = new ArrayList<>();
         //listaClientes = Mocks.getClientesMock();
     }
 

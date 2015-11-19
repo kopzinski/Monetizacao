@@ -12,6 +12,7 @@ package daointerface;
 import dao.ClienteDaoJpa;
 import dao.ProdutoDaoJpa;
 import dao.MonetizacaoDaoJpa;
+import dao.UsuarioDaoJpa;
 
 public class DaoFactory {
 
@@ -23,7 +24,11 @@ public class DaoFactory {
         return (new ProdutoDaoJpa());
     }
 
-    public static MonetizacaoDaoJpa geMonetizacaoDao() {
+    public static MonetizacaoDaoJpa getMonetizacaoDao() {
         return (new MonetizacaoDaoJpa());
+    }
+    
+    public static UsuarioDaoJpa getUsuarioDao() {
+        return (new UsuarioDaoJpa());
     }
 }

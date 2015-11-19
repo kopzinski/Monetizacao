@@ -13,20 +13,22 @@ import util.JpaUtil;
 /**
  *
  * @author Renan
+ * @author kopzinski
  */
-public class ContaDaoJpa implements ContaDao{
+
+public class ContaDaoJpa implements ContaDao {
 
     @Override
-    public void salvar(Conta c) {
+    public void salvar(Conta p) {
         EntityManager em = JpaUtil.getEntityManager();
         em.getTransaction().begin();
-        if (c.getId() == null) {
-            em.persist(c);
+        if (p.getId() == null) {
+            em.persist(p);
         } else {
-            em.merge(c);
+            em.merge(p);
         }
         em.getTransaction().commit();
         em.close();
-
     }
 }
+

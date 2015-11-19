@@ -6,5 +6,10 @@
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/kopzinski</property>
     <property name="hibernate.connection.username">kopzinski</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
+    <property name="hbmdl.auto">create</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>    
   </session-factory>
 </hibernate-configuration>

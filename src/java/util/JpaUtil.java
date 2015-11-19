@@ -15,7 +15,7 @@ import javax.persistence.Persistence;
  */
 public class JpaUtil {
      private static final EntityManagerFactory emf = 
-            Persistence.createEntityManagerFactory("VendaPU");
+            Persistence.createEntityManagerFactory("MonetizacaoPU");
     
     public static EntityManager getEntityManager() {
         return emf.createEntityManager();

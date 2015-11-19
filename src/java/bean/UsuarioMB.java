@@ -1,5 +1,6 @@
 package bean;
 
+import dao.UsuarioDaoJpa;
 import entity.Usuario;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +13,17 @@ public class UsuarioMB {
 
     private List<Usuario> listaUsuarios;
     private Usuario usuarioSelecionado;
+    private UsuarioDaoJpa dao;
 
     public UsuarioMB() {
+        if(dao == null) {
+            dao = new UsuarioDaoJpa();
+        }
+        
         usuarioSelecionado = new Usuario();
-        listaUsuarios = new ArrayList<Usuario>();
+        listaUsuarios = dao.listar();
         listaUsuarios.add(new Usuario("admin", "admin"));
+        
     }
 
     public Usuario getUsuarioSelecionado() {
@@ -44,6 +51,7 @@ public class UsuarioMB {
     public String adicionarUsuario()
     {
         listaUsuarios.add(usuarioSelecionado);
+        dao.salvar(usuarioSelecionado);
         return(this.novoUsuario());
     }
 
@@ -53,10 +61,12 @@ public class UsuarioMB {
     }
     public String atualizarUsuario()
     {
+        dao.salvar(usuarioSelecionado);
         return("/admin/index?faces-redirect=true");
     }
 
     public void removerUsuario(Usuario usuario){
+        dao.remover(usuario);
         listaUsuarios.remove(usuario);
     }
 

@@ -1,16 +1,39 @@
 package entity;
 
-public class Usuario {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+@Entity
+public class Usuario  implements java.io.Serializable {
+    
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    
     public final static int MASCULINO = 1;
     public final static int FEMININO = 2;
+    
     private String nome;
+    
     private String telefone;
+    
     private String email;
+    
     private String login;
+    
     private String senha;
+    
     private int sexo;
+    
     private String estado;
+    
     private boolean admin;
+    
 
     public Usuario() {
     }
@@ -101,5 +124,13 @@ public class Usuario {
     
     public boolean verificaLogin(String login, String senha){
         return(this.login.equals(login) && this.senha.equals(senha));
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }   

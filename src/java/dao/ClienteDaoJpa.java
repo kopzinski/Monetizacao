@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import daointerface.ClienteDao;
@@ -14,46 +9,46 @@ import util.JpaUtil;
 /**
  *
  * @author Renan
+ * @author kopzinski
  */
 public class ClienteDaoJpa implements ClienteDao {
 
     @Override
-    public void salvar(Cliente c) {
-        EntityManager em = JpaUtil.getEntityManager();
-        em.getTransaction().begin();
-        if (c.getId() == null) {
-            em.persist(c);
-        } else {
-            em.merge(c);
-        }
+    public void remover(Cliente p) {
+                EntityManager em = JpaUtil.getEntityManager();
+        em.getTransaction().begin();        
+        em.remove(em.merge(p));
         em.getTransaction().commit();
         em.close();
-
     }
 
     @Override
-    public void remover(Cliente c) {
+    public void salvar(Cliente p) {
         EntityManager em = JpaUtil.getEntityManager();
         em.getTransaction().begin();
-        em.remove(em.merge(c));
+        if (p.getId() == null) {
+            em.persist(p);
+        } else {
+            em.merge(p);
+        }
         em.getTransaction().commit();
         em.close();
     }
 
     @Override
     public Cliente buscarPorId(Long id) {
-        EntityManager em = JpaUtil.getEntityManager();
-        Cliente cliente = em.find(Cliente.class, id);
+              EntityManager em = JpaUtil.getEntityManager();
+        Cliente produto = em.find(Cliente.class, id);
         em.close();
-        return (cliente);
+        return (produto);
     }
 
     @Override
     public List<Cliente> listar() {
         EntityManager em = JpaUtil.getEntityManager();
-        List<Cliente> listaClientes = em.createQuery("SELECT c FROM Cliente c").getResultList();
+        List<Cliente> listaProdutos = em.createQuery("SELECT p FROM Cliente ").getResultList();
         em.close();
-        return (listaClientes);
+        return (listaProdutos);        
     }
 
 }
