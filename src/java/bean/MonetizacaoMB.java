@@ -56,6 +56,7 @@ public class MonetizacaoMB {
     
     public String executarOperacao() {
         if(clienteOrigem != null && clienteOrigem.getConta() != null) {
+            
             clienteOrigem.getConta().setSaldo(saldoOrigem);
         }
         if(clienteDestino != null && clienteDestino.getConta() != null) {

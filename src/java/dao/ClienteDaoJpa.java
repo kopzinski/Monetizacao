@@ -16,7 +16,7 @@ public class ClienteDaoJpa implements ClienteDao {
 
     @Override
     public void remover(Cliente p) {
-                EntityManager em = JpaUtil.getEntityManager();
+        EntityManager em = JpaUtil.getEntityManager();
         em.getTransaction().begin();        
         em.remove(em.merge(p));
         em.getTransaction().commit();
@@ -50,6 +50,7 @@ public class ClienteDaoJpa implements ClienteDao {
 
     @Override
     public List<Cliente> listar() {
+        System.out.println("Kop! listar...");
         EntityManager em = JpaUtil.getEntityManager();
         List<Cliente> listaProdutos = em.createQuery("SELECT c FROM Cliente c").getResultList();
         em.close();
@@ -61,6 +62,7 @@ public class ClienteDaoJpa implements ClienteDao {
         EntityManager em = JpaUtil.getEntityManager();
         Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.cpf = :cpf ");
         query.setParameter("cpf", cpf);
+        
         List<Cliente> listaProdutos = query.getResultList();
         em.close();
         return (listaProdutos);        
